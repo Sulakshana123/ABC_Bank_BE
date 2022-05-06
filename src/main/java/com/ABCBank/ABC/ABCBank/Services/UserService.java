@@ -33,4 +33,6 @@ public class UserService {
 	{
 		userRepository.deleteById(user_id);
 	}
+
+	
 }

@@ -3,6 +3,7 @@ package com.ABCBank.ABC.ABCBank.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ABCBank.ABC.ABCBank.Services.AccountService;
 import com.ABCBank.ABC.ABCBank.model.Account;
+
 
 @RestController
 public class AccountController {
@@ -38,12 +40,15 @@ public class AccountController {
 		return accountService.getAccountById(account_Id);
 	}
 	
-	/*
-	@GetMapping("/accountdelete/{account_Id}")
-	public String deleteById(@PathVariable int account_Id)
-	{
-		accountService.deleteAccountById(account_Id);
-		return "Success Account Delete";
+	
+	
+	
+	@DeleteMapping("/deleteByAccountId/{account_Id}")
+	public String deleteByAccountId(@PathVariable Integer account_Id) {
+		 accountService.deleteAccountById(account_Id);
+		 return "delete successfully";
 	}
-*/
+	
+	
+
 }

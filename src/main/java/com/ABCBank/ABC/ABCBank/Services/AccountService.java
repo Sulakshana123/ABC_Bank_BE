@@ -27,12 +27,24 @@ public class AccountService {
 	
 	public Account getAccountById(int account_Id)
 	{
-		accountrepository.deleteById(account_Id);
+		
 		return accountrepository.findById(account_Id).get();
 	}
 	
-	//public void deleteAccountById(int account_Id)
-	//{
-		//accountrepository.deleteByAccountId(account_Id);
-	//}
+	public String deleteAccountById(int account_Id) {
+		accountrepository.deleteById(account_Id);
+		return "Successfully delete";
+	}
+	
+	public void incremetValue(Account account, float newbalance) {
+		account.setAccount_balance(newbalance);
+		accountrepository.save(account);
+	}
+	
+	public void decremetValue(Account account, float newbalance) {
+		account.setAccount_balance(newbalance);
+		accountrepository.save(account);
+	}
+
+	
 }
